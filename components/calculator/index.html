@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="calculator.js" type="module"></script>
+    <meta name="theme-color" content="#333" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#fff" media="(prefers-color-scheme: light)">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            const applyTheme = (isDarkMode) => {
+                const root = document.documentElement;
+                root.style.setProperty('--calc-bg-color', isDarkMode ? '#2d2d2d' : '#ffffff');
+                root.style.setProperty('--calc-text-color', isDarkMode ? '#ffffff' : '#1a1a1a');
+                root.style.setProperty('--calc-display-bg-color', isDarkMode ? '#1a1a1a' : '#f0f0f0');
+                root.style.setProperty('--calc-button-bg-color', isDarkMode ? '#3d3d3d' : '#f8f8f8');
+                root.style.setProperty('--calc-button-hover-bg-color', isDarkMode ? '#4a4a4a' : '#eeeeee');
+                root.style.setProperty('--calc-operator-bg-color', isDarkMode ? '#505050' : '#e6e6e6');
+                root.style.setProperty('--calc-equals-bg-color', isDarkMode ? '#4CAF50' : '#4CAF50');
+                root.style.setProperty('--border-color', isDarkMode ? '#505050' : '#e0e0e0');
+            };
+            applyTheme(darkModeMediaQuery.matches);
+            darkModeMediaQuery.addEventListener('change', (e) => applyTheme(e.matches));
+        });
+    </script>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--calc-bg-color);
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <calculator-app/>
+</body>
+</html>

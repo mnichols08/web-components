@@ -1,0 +1,70 @@
+/* Default light theme */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --link-color: #0066cc;
+    --accent-color: #4CAF50;
+    --border-color: #dddddd;
+}
+
+/* Dark theme when user prefers dark color scheme */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #1a1a1a;
+        --text-color: #e0e0e0;
+        --link-color: #66b3ff;
+        --accent-color: #6abe6e;
+        --border-color: #404040;
+    }
+
+    /* Dark theme for calculator component */
+    calculator-app {
+        --calc-bg-color: #333333;
+        --calc-display-bg-color: #444444;
+        --calc-button-bg-color: #555555;
+        --calc-button-hover-bg-color: #666666;
+        --calc-operator-bg-color: #ff9500;
+        --calc-equals-bg-color: #217346;
+        --calc-text-color: #ffffff;
+    }
+}
+
+/* Light theme for calculator component */
+calculator-app {
+    --calc-bg-color: #f0f0f0;
+    --calc-display-bg-color: #ffffff;
+    --calc-button-bg-color: #e0e0e0;
+    --calc-button-hover-bg-color: #d0d0d0;
+    --calc-operator-bg-color: #ff9500;
+    --calc-equals-bg-color: #217346;
+    --calc-text-color: #000000;
+}
+
+/* Base styles for better accessibility */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 16px;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Ensure sufficient color contrast */
+a {
+    color: var(--link-color);
+}
+
+/* Reduce eye strain */
+* {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
